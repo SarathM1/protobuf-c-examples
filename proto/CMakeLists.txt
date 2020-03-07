@@ -59,8 +59,7 @@ function(PROTOBUF_GENERATE_C SRCS HDRS)
         set(FIL_WE "${FIL_DIR}/${FIL_WE}")
       endif()
     endif()
-    message(STATUS "file: " "${CMAKE_CURRENT_BINARY_DIR}/${FIL_WE}.pb-c.c")
-      list(APPEND ${SRCS} "${CMAKE_CURRENT_BINARY_DIR}/${FIL_WE}.pb-c.c")
+    list(APPEND ${SRCS} "${CMAKE_CURRENT_BINARY_DIR}/${FIL_WE}.pb-c.c")
     list(APPEND ${HDRS} "${CMAKE_CURRENT_BINARY_DIR}/${FIL_WE}.pb-c.h")
 
     add_custom_command(
