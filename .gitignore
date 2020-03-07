@@ -10,7 +10,6 @@
 *.mod
 *.bak
 tags
-amessage.pb-c.h
 pack_unpack
 .vscode/
-*.pb-c.c
+*.pb-c.*
