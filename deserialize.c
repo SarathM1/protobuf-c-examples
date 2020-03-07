@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "amessage.pb-c.h"
+#include "./proto/amessage.pb-c.h"
 #define MAX_MSG_SIZE 1024
 
 static size_t

@@ -1,4 +1,4 @@
-#include "amessage.pb-c.h"
+#include "./proto/amessage.pb-c.h"
 #include <stdio.h>
 #include <stdlib.h>
 
