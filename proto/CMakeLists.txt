@@ -50,7 +50,6 @@ function(PROTOBUF_GENERATE_C SRCS HDRS)
 
   set(${SRCS})
   set(${HDRS})
-  message(STATUS "exec:" ${Protobuf_PROTOC-C_EXECUTABLE})
   foreach(FIL ${ARGN})
     get_filename_component(ABS_FIL ${FIL} ABSOLUTE)
     get_filename_component(FIL_WE ${FIL} NAME_WE)
