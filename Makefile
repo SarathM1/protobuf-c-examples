@@ -15,8 +15,8 @@ LDFLAGS = /usr/local/lib/libprotobuf-c.a
 TARGET1 = amessage_serialize
 TARGET2 = amessage_deserialize
 
-OBJS_1 = amessage.pb-c.o test4.o 
-OBJS_2 = amessage.pb-c.o receiver.o 
+OBJS_1 = amessage.pb-c.o serialize.o 
+OBJS_2 = amessage.pb-c.o deserialize.o 
 
 COMPILE  = $(CC) $(CFLAGS) -MD -c -o $@ $<
 
