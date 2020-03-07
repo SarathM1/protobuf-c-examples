@@ -12,22 +12,32 @@
 CC = gcc
 CFLAGS = -Wall -O2 -I/usr/local/include
 LDFLAGS = /usr/local/lib/libprotobuf-c.a
-TARGET = pack_unpack
-OBJS = amessage.pb-c.o test4.o 
+TARGET1 = amessage_serialize
+TARGET2 = amessage_deserialize
+
+OBJS_1 = amessage.pb-c.o test4.o 
+OBJS_2 = amessage.pb-c.o receiver.o 
+
 COMPILE  = $(CC) $(CFLAGS) -MD -c -o $@ $<
-LINK = $(CC) $(OBJS) $(LDFLAGS) -o $@
 
-ALL:$(TARGET)
+LINK_1 = $(CC) $(OBJS_1) $(LDFLAGS) -o $@
+LINK_2 = $(CC) $(OBJS_2) $(LDFLAGS) -o $@
 
-$(TARGET):$(OBJS)
-	$(LINK)
+ALL:$(TARGET1) $(TARGET2)
+
+$(TARGET1):$(OBJS_1)
+	$(LINK_1)
+
+$(TARGET2):$(OBJS_2)
+	$(LINK_2)
 
 %.o:%.c
 	$(COMPILE)
+
 %.pb-c.c:%.proto
 	protoc-c amessage.proto --c_out=./
 
--include $(OBJS:.o=.d)
+-include $(OBJS_1:.o=.d)
 
 clean:
-	rm -f $(OBJS) *~ *.d *.o $(TARGET) *pb-c.[ch]
+	rm -f $(OBJS_1) $(OBJS_2) *~ *.d *.o $(TARGET1) $(TARGET2) *pb-c.[ch]

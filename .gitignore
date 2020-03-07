@@ -13,3 +13,5 @@ tags
 pack_unpack
 .vscode/
 *.pb-c.*
+amessage_deserialize
+amessage_serialize
