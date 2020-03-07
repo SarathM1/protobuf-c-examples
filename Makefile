@@ -9,10 +9,9 @@
 # link command
 #
 
-PROTOC_DIR=./proto-bufc/
 CC = gcc
-CFLAGS = -Wall -O2 -I${PROTOC_DIR}include/
-LDFLAGS = ${PROTOC_DIR}lib/libprotobuf-c.a
+CFLAGS = -Wall -O2 -I/usr/local/include
+LDFLAGS = /usr/local/lib/libprotobuf-c.a
 TARGET = pack_unpack
 OBJS = amessage.pb-c.o test4.o 
 COMPILE  = $(CC) $(CFLAGS) -MD -c -o $@ $<
@@ -26,7 +25,7 @@ $(TARGET):$(OBJS)
 %.o:%.c
 	$(COMPILE)
 %.pb-c.c:%.proto
-	${PROTOC_DIR}bin/protoc-c amessage.proto --c_out=./
+	protoc-c amessage.proto --c_out=./
 
 -include $(OBJS:.o=.d)
 
